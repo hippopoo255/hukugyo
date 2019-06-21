@@ -6,17 +6,20 @@
     <div class="job card selected">
       <div class="img-wrapper">
         <img src="/img/uploaded/{{ $job->image }}" alt="" class="card-img-top p-0">
-        <p class="job-price">{{ number_format( $job->price ) }}円</p>
+        <p class="job-price show-page">{{ number_format( $job->price ) }}円</p>
       </div>
       <h2 class="job-title">{{ $job->title }}</h2>
       <p class="job-description">{!! nl2br(e($job->body)) !!}</p>
-      <small><i class="fas fa-user user-icon"></i> {{ $job->user->name }}さん</small>
+      <small>
+        <i class="fas fa-user user-icon"></i> {{ $job->user->name }}さん
+        <a href="#" class="btn new-comment font-weight-bold" title="コメントをする" data-toggle="tooltip" data-placement="top"><i class="fas fa-comment"></i></a>
+      </small>
     </div>
   </section>
   <section class="comments">
     <h1 class="page-title"> - Comments - </h1>
     <div class="new-comment-wrapper">
-      <a href="#" class="btn new-comment font-weight-bold" title="コメントをする" data-toggle="tooltip" data-placement="top"><i class="fas fa-comment"></i></a>
+
     </div>
     @forelse($job->comments as $comment)
       <div class="comment flex-center">
@@ -44,5 +47,5 @@
   </section>
 
     @extends('layouts.commentform')
-    
+
 @endsection

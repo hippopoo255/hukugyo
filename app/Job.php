@@ -19,5 +19,10 @@ class Job extends Model
   {
     return $this->hasMany('App\Comment');
   }
-  
+
+  public function scopeMonthly($query, $year, $month)
+  {
+      return $query->whereRaw("DATE_FORMAT(created_at, '%Y-%c') = '{$year}-{$month}'")->orderBy('created_at', 'desc')->paginate(12);
+  }
+
 }

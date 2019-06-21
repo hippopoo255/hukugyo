@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Job;
 use DB;
 class ArchiveMiddleware
 {
@@ -47,7 +48,7 @@ class ArchiveMiddleware
 
     protected function getCurrentJobs()
     {
-      $current_jobs = DB::table('jobs')->orderBy('created_at', 'desc')->limit(5)->get();
+      $current_jobs = Job::latest()->limit(5)->get();
       return $current_jobs;
     }
 }

@@ -33,13 +33,15 @@
     }
 
     var pathname = $(location).attr('pathname');
-    if( pathname.match('^job/[1-9][0-9]*$') === null ){
+    if( pathname.match('^jobs/[1-9]*[0-9]$') === null ){
       //  job一覧のとき、仕事の内容は10文字 + '(more...)'
-        var $setElem = $('.job-description');
-        $setElem.each(function(){
-            var text = $(this).text().substr(0, 10) + '...(more)';
-            $(this).text(text);
-        });
+        // var $setElem = $('.job-description');
+        // $setElem.each(function(){
+        //   if($(this).text().length > 10){
+        //     var text = $(this).text().substr(0, 10) + '...(more)';
+        //     $(this).text(text);
+        //   }
+        // });
 
       //  仕事のタイトルは10文字 + '...'
         var $setTitle = $('.job-title');

@@ -108,8 +108,8 @@ class JobController extends Controller
     public function showFromArchives(Request $request, $year, $month)
     {
 
-      $jobs = Job::whereRaw("DATE_FORMAT(created_at, '%Y-%c') = '{$year}-{$month}'")->orderBy('created_at', 'desc')->paginate(12);
-
+      // $jobs = Job::whereRaw("DATE_FORMAT(created_at, '%Y-%c') = '{$year}-{$month}'")->orderBy('created_at', 'desc')->paginate(12);
+      $jobs = Job::monthly( $year, $month );
       return view('jobs.index', [
         'jobs'=>$jobs,
         'archives' => $request->archives,

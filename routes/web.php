@@ -20,7 +20,6 @@ Route::get('/', function (Request $request) {
   ]);
 });
 Route::get('/howtouse', 'HomeController@howToUse')->name('howtouse');
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mypage', 'HomeController@mypage')->name('mypage');
 // JobController
 Route::resource('jobs', 'JobController');

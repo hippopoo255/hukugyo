@@ -13,9 +13,8 @@
         <div class="img-wrapper">
           <img src="/img/uploaded/{{ $job->image }}" alt="" class="card-img-top p-0">
         </div>
-        <p class="job-price">{{ number_format( $job->price ) }}円</p>
         <a href="{{ route( 'jobs.show', $job ) }}"><h2 class="job-title">{{ $job->title }}</h2></a>
-        <p class="job-description">{!! nl2br(e($job->body)) !!}</p>
+        <p class="job-price">{{ number_format( $job->price ) }}円</p>
         <hr class="m-0">
         <div class="flex-center auth-merge">
           <small><i class="fas fa-user user-icon"></i> {{ $job->user->name }}さん</small>

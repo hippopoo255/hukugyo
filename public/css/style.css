@@ -31,8 +31,8 @@ html, body {
     margin: 0;
 }
 #app{
-  opacity: 0;
   background: #eee;
+  opacity: 0;
   animation: frash 0.8s forwards;
 }
 @keyframes frash{
@@ -344,10 +344,19 @@ a:hover {
         }
 
     .jumbotron .catch-copy{
+      color: #fff;
       position: absolute;
-      bottom:100px;
+      bottom:0;
+      padding: 20px;
+    }
+    .jumbotron .catch-copy-wrapper{
+      height: 100px;
+      position: absolute;
+      left: 0;
+      right:0;
+      bottom: 0;
+      background-image: linear-gradient(to bottom, transparent 10%, #333 150%);
       opacity: 0;
-      left: 10%;
       animation: catchcopy-up 3s forwards;
       animation-delay: 1s;
     }
@@ -355,6 +364,12 @@ a:hover {
         0%{ opacity: 0; transform: translateY(200px);}
         30%{ opacity: 0;}
         100%{ opacity: 1;}
+      }
+
+      @media(max-width: 768px){
+        .jumbotron .catch-copy-wrapper{
+            display: none;
+        }
       }
 
 .links > a {
@@ -678,7 +693,6 @@ a:hover {
       @media(max-width: 700px){
         .introduction-content, .article-content{
           padding: 20px 5px;
-          /* font-size: 12px; */
         }
 
       }
@@ -776,7 +790,7 @@ a:hover {
   font-size: 18px;
   margin: 10px 0;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 10px 10px 40px;
 }
     .job .job-description{
       font-size: 12px;
@@ -795,10 +809,14 @@ a:hover {
         background: var(--wakuwaku);
         color: #fff;
         position: absolute;
-        bottom: 70px;
         left: -10px;
         right: -10px;
+        bottom: 65px;
         border-radius: 5px 5px 0 0 / 5px 5px 0 0;
+    }
+    .job .job-price.show-page {
+      top: 5px;
+      bottom:auto;
     }
 
     .job .job-price::before, .job .job-price::after{
@@ -929,6 +947,7 @@ a:hover {
     }
     #edit_image{
       border:1px solid silver;
+      width: 100%;
     }
 
 /*------------------ aside -----------------------*/
@@ -985,8 +1004,7 @@ aside > div{
       margin: 0 5px;
     }
 
-.widget-new-jobs{
-}
+
 .widget-new-jobs .new-job-wrapper{
   display: flex;
   justify-content: flex-start;
@@ -994,6 +1012,11 @@ aside > div{
   text-align: left;
   margin: 5px;
 }
+
+.widget-new-jobs .new-job-wrapper + .new-job-wrapper{
+  border-top: 1px solid #eee;
+}
+
 .new-job-wrapper > div{
   padding: 5px;
 }
@@ -1002,12 +1025,17 @@ aside > div{
   width: 60px;
   height: 60px;
 }
+.new-job-link{
+  flex: 1 1 auto;
+}
 .widget-new-jobs a{
-  padding: 5px;
+  display: inline-block;
+  width: 100%;
+  height:100%;
   color: #333;
   font-weight: bold;
   font-size: 14px;
-  line-height: 0.5;
+  line-height: 1;
 }
 
 
@@ -1076,3 +1104,6 @@ footer{
 #transfer_create .btn:hover{
   opacity: 1;
 }
+
+
+/* free */

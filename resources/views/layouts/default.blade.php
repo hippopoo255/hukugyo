@@ -110,7 +110,9 @@
             </ul>
             @endif
             {{-- 3.キャッチコピー --}}
-            <h1 class="catch-copy">人生は、一本道じゃない</h1>
+            <div class="catch-copy-wrapper">
+              <h1 class="catch-copy">人生は、一本道じゃない</h1>
+            </div>
           </div>
           @endif
         </header>
@@ -153,8 +155,8 @@
                 <div class="">
                    <img src="/img/uploaded/{{ $job->image }}" alt="">
                 </div>
-                <div class="">
-                  <a href="{{ route( 'jobs.show', $job->id ) }}" class="new-job-link">{{ $job->title }}</a>
+                <div class="new-job-link">
+                  <a href="{{ route( 'jobs.show', $job->id ) }}">{{ $job->title }}</a>
                 </div>
               </article>
               @empty
